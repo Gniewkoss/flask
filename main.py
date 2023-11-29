@@ -5,12 +5,12 @@ import requests
 app = Flask(__name__)
 
 users = [
-    {"name": "Gniewko", "lastname": "Koscielak"},
-    {"name": "Dominik", "lastname": "Kowalski"},
-    {"name": "Jan", "lastname": "Kowalski"},
-    {"name": "Mateusz", "lastname": "Nowak"},
-    {"name": "Marcin", "lastname": "Nowakowski"},
-    {"name": "Krzysztof", "lastname": "Wisniewski"}]
+    {'id': 1, "name": "Gniewko", "lastname": "Koscielak"},
+    {'id': 2, "name": "Dominik", "lastname": "Kowalski"},
+    {'id': 3,"name": "Jan", "lastname": "Kowalski"},
+    {'id': 4, "name": "Mateusz", "lastname": "Nowak"},
+    {'id': 5, "name": "Marcin", "lastname": "Nowakowski"},
+    {'id': 6, "name": "Krzysztof", "lastname": "Wisniewski"}]
 
 
 def find_user_by_id(user_id):
