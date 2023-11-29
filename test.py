@@ -57,6 +57,6 @@ def test_delete_user(client):
     assert response.data == b''
 
 def test_delete_user_not_found(client):
-    response = client.delete('/users/100')
+    response = client.delete('/users/80')
     assert response.status_code == 400
     assert json.loads(response.get_data()) == {'error': 'User not found'}
