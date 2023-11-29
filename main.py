@@ -4,7 +4,13 @@ import requests
 
 app = Flask(__name__)
 
-users = []
+users = [
+    {"name": "Gniewko", "lastname": "Koscielak"},
+    {"name": "Dominik", "lastname": "Kowalski"},
+    {"name": "Jan", "lastname": "Kowalski"},
+    {"name": "Mateusz", "lastname": "Nowak"},
+    {"name": "Marcin", "lastname": "Nowakowski"},
+    {"name": "Krzysztof", "lastname": "Wisniewski"}]
 
 
 def find_user_by_id(user_id):
