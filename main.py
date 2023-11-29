@@ -5,13 +5,7 @@ import requests
 app = Flask(__name__)
 
 users = []
-url = "http://127.0.0.1:5000/users"
-data = {"name": "Jan", "lastname": "Kowalski"}
 
-response = requests.post(url, json=data)
-
-print(response.status_code)
-print(response.json())
 
 def find_user_by_id(user_id):
     for user in users:
