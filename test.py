@@ -6,6 +6,31 @@ from main import app, users
 def client():
     return app.test_client()
 
+
+def test_user_list(client):
+    users_to_create = [
+        {'name': 'Alice', 'lastname': 'Johnson'},
+        {'name': 'Bob', 'lastname': 'Smith'},
+        {'name': 'Charlie', 'lastname': 'Brown'}
+    ]
+    created_user_ids = []
+
+    for user_data in users_to_create:
+        response = client.post('/users', json=user_data)
+        assert response.status_code == 201
+        created_user_ids.append(json.loads(response.get_data())['id'])
+
+    response = client.get('/users')
+    assert response.status_code == 200
+    user_list = json.loads(response.get_data())
+
+    for user_id in created_user_ids:
+        assert any(user['id'] == user_id for user in user_list)
+
+    for user_id in created_user_ids:
+        response = client.delete(f'/users/{user_id}')
+        assert response.status_code == 204
+
 def test_get_users(client):
     response = client.get('/users')
     assert response.status_code == 200
